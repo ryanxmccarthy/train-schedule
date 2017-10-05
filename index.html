@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Schedule</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="assets/css/schedule.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+
+</head>
+<body>
+	<div class="jumbotron text-center">
+	  <h1>Train Schedule</h1>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Current Train Schedule</div>
+		<div class="panel-body">
+			<table class='table' id='employee-data'>
+				<thead>
+					<tr>
+						<th>Train Name</th>
+						<th>Destination</th>
+						<th>Frequency (min)</th>
+						<th>Next Arrival</th>
+						<th>Minutes Away</th>
+					</tr>
+				</thead>
+
+				<tbody id='table-body'></tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Add Train</div>
+		<div class="panel-body">
+			<p>Train Name</p>
+
+			<div class="input-group col-lg-12">
+			  <input type="text" class="form-control" aria-describedby="basic-addon1" id='name'>
+			</div>
+
+			<br>
+
+			<p>Destination</p>
+			
+			<div class="input-group col-lg-12">
+			  <input type="text" class="form-control" aria-describedby="basic-addon1" id='role'>
+			</div>
+
+			<br>
+
+			<p>First Train Time (HH:mm - military time)</p>
+
+			<div class="input-group col-lg-12">
+			  <input type="text" class="form-control" aria-describedby="basic-addon1" id='start'>
+			</div>
+
+			<br>
+
+			<p>Frequency (min)</p>
+
+			<div class="input-group col-lg-12">
+			  <input type="text" class="form-control" aria-describedby="basic-addon1" id='rate'>
+			</div>
+
+			<br>
+
+			<button type="button" class="btn btn-primary submit" aria-label="Left Align" id='submit'>
+			  Submit
+			</button>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  	<script src="assets/javascript/schedule.js"></script>
+</body>
+</html>
