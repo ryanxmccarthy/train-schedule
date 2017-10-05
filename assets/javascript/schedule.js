@@ -1,10 +1,10 @@
 var config = {
-    apiKey: "AIzaSyCeOq_JRH1jGjOOL7T9I58ddRaPMA_ur4s",
-    authDomain: "employee-data-mgmt-c63c4.firebaseapp.com",
-    databaseURL: "https://employee-data-mgmt-c63c4.firebaseio.com",
-    projectId: "employee-data-mgmt-c63c4",
-    storageBucket: "employee-data-mgmt-c63c4.appspot.com",
-    messagingSenderId: "218126975087"
+    apiKey: "AIzaSyCsfoDFVSdMNuw3K22R0EUOzSAZFmbVFIc",
+    authDomain: "train-schedule-7b1a2.firebaseapp.com",
+    databaseURL: "https://train-schedule-7b1a2.firebaseio.com",
+    projectId: "train-schedule-7b1a2",
+    storageBucket: "",
+    messagingSenderId: "552069096998"
 };
 
 firebase.initializeApp(config);
@@ -15,36 +15,30 @@ $('#submit').on('click', function() {
 	event.preventDefault();
 
 	var name = $('#name').val();
-	var role = $('#role').val();
-	var start = $('#start').val();
-	var rate = $('#rate').val();
+	var dest = $('#dest').val();
+	var first = $('#first').val();
+	var freq = $('#freq').val();
 	// console.log(name, role, start, rate)
 
 	database.ref().push({
 	    name: name,
-	    role: role,
-	    start: start,
-	    rate: rate,
+	    dest: dest,
+	    first: first,
+	    freq: freq,
 	    dateAdded: firebase.database.ServerValue.TIMESTAMP
 	})	
 });
 
 database.ref().on("child_added", function(childSnapshot){
 		var childName = childSnapshot.val().name;
-		var roleName = childSnapshot.val().role;
-		var childDate = childSnapshot.val().start;
-		var today = "10/04/17"
-		var monthsWorked = moment(today).diff(childDate, 'months'); 
-		var childRate = childSnapshot.val().rate;
-		var totalBilled = monthsWorked * childRate;
+		var childDest = childSnapshot.val().dest;
+		var childFirst = childSnapshot.val().first;
+		var childFreq = childSnapshot.val().freq;
 
 		var table = $('#employee-data');
 		table.append(
 			'<tr><td>' + childName + '</td>' +
-			'<td>' + roleName + '</td>' +
-			'<td>' + childDate + '</td>' +
-			'<td>' + monthsWorked + '</td>' +
-			'<td>' + childRate + '</td>' +
-			'<td>' + totalBilled + '</td></tr>'
+			'<td>' + childDest + '</td>' +
+			'<td>' + childFreq + '</td></tr>'
 			);
 })
