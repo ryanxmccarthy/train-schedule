@@ -26,7 +26,12 @@ $(document).ready(function(){
 		    dest: dest,
 		    first: first,
 		    freq: freq,
-		})	
+		})
+
+		$('#name').val('');
+		$('#dest').val('');
+		$('#first').val('');
+		$('#freq').val('');
 	});
 
 	database.ref().on("child_added", function(childSnapshot){
