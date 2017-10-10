@@ -1,5 +1,6 @@
 body {
 	margin: 0 70px;
+	background-color: grey;
 }
 
 h1 {
@@ -10,4 +11,12 @@ h1 {
 	background-color: black;
 	color: white;
 	border-radius: 5px;
+}
+
+.panel-primary {
+	border-color: black;
+}
+
+.panel-primary>.panel-heading {
+	background: black;
 }
